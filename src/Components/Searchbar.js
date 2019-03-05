@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import searchIcon from '../Assets/search.svg';
 
@@ -32,14 +32,41 @@ const Icon = styled.img`
   height: 40px;
 `
 
-const SearchBar = () => {  
-  return (
-    <SearchField>
-      <Input placeholder="Search the BrewDog collection"></Input>
-      <a href="#"><Icon src={searchIcon} alt="glass"/></a>
-    </SearchField>
-    
-  )
+class SearchBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputFieldValue: ''
+    }
+  }
+
+  handleOnChange = (ev) => {
+    this.setState({
+      inputFieldValue: ev.target.value
+    })
+  }
+
+  // Checks if the enter key is pressed
+  // and calls the submit function if it was pressed
+  checkForEnterPressed = (ev) => {
+    if (ev.key === 'Enter') {
+      this.submit();
+    }
+  }
+
+  submit = () => {
+    console.log('submitted:', this.state.inputFieldValue);
+  }
+
+  render() {
+    return (
+      <SearchField>
+        <Input placeholder="Search the BrewDog collection" onChange={this.handleOnChange} onKeyDown={this.checkForEnterPressed}></Input>
+        <a href="#"><Icon src={searchIcon} alt="glass" onClick={this.submit}/></a>
+      </SearchField>
+      
+    )
+  }
 }
 
 export default SearchBar;
