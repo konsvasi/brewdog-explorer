@@ -15,11 +15,11 @@ const Logo = styled.h1`
   justify-self: center;
 `;
 
-const Header = () => {
+const Header = (props) => {
   return (
     <Head>
       <Logo>Brewdog explorer</Logo>
-      <SearchBar />
+      <SearchBar getResults={props.getResults}/>
     </Head>
   )
 }

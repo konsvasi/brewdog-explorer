@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const SideBar = styled.div`
   background: salmon;
+  height: 400px;
 `;
 
 const ToolSideBar = () => {

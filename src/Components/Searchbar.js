@@ -36,7 +36,7 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputFieldValue: ''
+      inputFieldValue: '',
     }
   }
 
@@ -50,21 +50,30 @@ class SearchBar extends Component {
   // and calls the submit function if it was pressed
   checkForEnterPressed = (ev) => {
     if (ev.key === 'Enter') {
-      this.submit();
+      this.submit(this.state.inputFieldValue);
     }
   }
 
-  submit = () => {
-    console.log('submitted:', this.state.inputFieldValue);
+  // Makes a fetch call based on the searchTerm given
+  // and returns the response
+  fetchResults = async (searchTerm) => {
+    const response = await fetch(`https://api.punkapi.com/v2/beers/?beer_name=${searchTerm}`);
+    const result = await response.json();
+    return result;
+  }
+
+  // Submits the results to the parent component
+  submit =  async (searchTerm) => {
+    const result = await this.fetchResults(searchTerm);
+    this.props.getResults(result);
   }
 
   render() {
     return (
       <SearchField>
         <Input placeholder="Search the BrewDog collection" onChange={this.handleOnChange} onKeyDown={this.checkForEnterPressed}></Input>
-        <a href="#"><Icon src={searchIcon} alt="glass" onClick={this.submit}/></a>
+        <a href="#"><Icon src={searchIcon} alt="glass" onClick={() => {this.submit(this.state.inputFieldValue)}}/></a>
       </SearchField>
-      
     )
   }
 }

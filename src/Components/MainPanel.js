@@ -11,11 +11,15 @@ const Panel = styled.div`
 `;
 
 class MainPanel extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
       <Panel>
         <ToolSideBar />
-        <CardList />
+        <CardList data = {this.props.data} />
       </Panel>
     )
   }
