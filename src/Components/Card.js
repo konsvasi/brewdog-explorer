@@ -28,6 +28,13 @@ const fadeIn = keyframes`
   }
 `;
 
+const ProductImage = styled.img`
+  width: auto;
+  height: auto;
+  max-width: 200px;
+  max-height: 300px;
+`;
+
 const Info = styled.div`
   box-shadow: 15px 13px 29px -5px rgba(0,0,0,0.21);
   display: grid;
@@ -48,14 +55,14 @@ const Info = styled.div`
     transition: 2s;
     grid-template-rows: 1fr;
     background: red;
+    z-index: 10;
   }
 `;
 
-const ProductImage = styled.img`
+const ImageContainer = styled.div`
   grid-column: 1 / -1;
   grid-row: 1 / 3;
-  width: 100%;
-  height: 100%;
+  justify-self: center;
 `;
 
 const Name = styled.h1`
@@ -80,7 +87,9 @@ const SubDetails = styled.p`
 const Card = (props) => {
  return (
   <Info>
-    <ProductImage src={props.beer.image_url}/>
+    <ImageContainer>
+      <ProductImage src={props.beer.image_url}/>
+    </ImageContainer>
     <Details>
       <Name>{props.beer.name}</Name>
       <TagLine>

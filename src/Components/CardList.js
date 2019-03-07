@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Card from './Card';
 
 const List = styled.div`
+ padding: 15px;
  display: grid;
  grid-template-columns: repeat(3, 350px);
  grid-auto-rows: 450px;
