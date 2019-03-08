@@ -2,19 +2,28 @@ import React from 'react';
 import styled from 'styled-components';
 import ToolSideBar from './ToolSideBar';
 import CardList from './CardList';
+import Message from './Message';
 
 const Panel = styled.div`
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: 1fr;
 `;
 
+
+const Container = (props) => {
+  if (props.data && props.data.length > 0 ) {
+    return <CardList data = {props.data} />
+  }
+
+  return <Message textToDisplay={"Sorry, no beers found"} />
+}
 const MainPanel = (props) => {
   return (
     <Panel>
       <ToolSideBar />
-      <CardList data = {props.data} />
+      <Container data={props.data}/>
     </Panel>
   )
 }

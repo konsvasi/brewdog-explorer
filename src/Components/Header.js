@@ -6,7 +6,7 @@ const Head = styled.header`
   display: grid;
   grid-template-columns: 350px 1fr;
   grid-template-rows: 90px;
-  background-color: rebeccapurple;
+  background-color: #0FD0D5;
 `;
 
 const Logo = styled.h1`
