@@ -12,10 +12,11 @@ const SideBar = styled.div`
   grid-gap: 25px;
 `;
 
-const ToolSideBar = () => {
+const ToolSideBar = (props) => {
+  console.log('toolProps: ', props);
   return (
     <SideBar>
-      <RandomButton />
+      <RandomButton getRandomBeer={props.getRandomBeer} />
     </SideBar>
   )
 }

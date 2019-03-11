@@ -14,11 +14,15 @@ class App extends Component {
     this.setState({results: results});
   }
 
+  getRandomBeer = (result) => {
+    this.setState({results: result});  
+  }
+
   render() {
     return (
       <div>
         <Header getResults={this.getResults}/>
-        <MainPanel data={this.state.results}/>
+        <MainPanel data={this.state.results} getRandomBeer={this.getRandomBeer}/>
       </div>
     );
   }

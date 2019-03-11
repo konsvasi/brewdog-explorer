@@ -22,7 +22,7 @@ const Container = (props) => {
 const MainPanel = (props) => {
   return (
     <Panel>
-      <ToolSideBar />
+      <ToolSideBar getRandomBeer={props.getRandomBeer} />
       <Container data={props.data}/>
     </Panel>
   )
