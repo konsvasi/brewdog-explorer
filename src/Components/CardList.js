@@ -3,18 +3,23 @@ import styled from 'styled-components';
 import Card from './Card';
 
 const List = styled.div`
+ padding: 15px;
  display: grid;
- grid-template-columns: repeat(3, 1fr);
+ grid-template-columns: repeat(3, 350px);
+ grid-auto-rows: 450px;
  grid-gap: 15px;
 `;
 
 
-const CardList = () => {
+const CardList = (props) => {
+  const resultList = props.data.map((beer => {
+    return (
+      <Card key={beer.id} beer={beer} />
+    )
+  }))
   return (
     <List>
-      <Card />
-      <Card />
-      <Card />
+      {resultList}
     </List>
   )
 }
