@@ -8,7 +8,7 @@ const Panel = styled.div`
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 1fr;
-  grid-template-rows: 90px 1fr;
+  grid-template-rows: max-content 1fr;
 `;
 
 
@@ -17,13 +17,17 @@ const Container = (props) => {
     return <CardList data = {props.data} />
   }
 
+  if (props.firstCall) {
+    return <Message textToDisplay={"Search for a beer by moving the range slider, typing in the searchbar or just get a random recommendation"} />
+  }
+
   return <Message textToDisplay={"Sorry, no beers found"} />
 }
 const MainPanel = (props) => {
   return (
     <Panel>
-      <ToolSideBar getRandomBeer={props.getRandomBeer} />
-      <Container data={props.data}/>
+      <ToolSideBar getRandomBeer={props.getRandomBeer}  beerWithAbv={props.getBeerWithAbv}/>
+      <Container data={props.data} firstCall={props.firstCall}/>
     </Panel>
   )
 }

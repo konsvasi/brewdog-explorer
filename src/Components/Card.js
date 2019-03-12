@@ -68,7 +68,7 @@ const ImageContainer = styled.div`
 const Name = styled.h1`
   font-size: 24px;
   font-weight: 700;
-  color: rgb(40,40,40);
+  color: #484848;
   margin: 0;
 `;
 
@@ -88,7 +88,7 @@ const Card = (props) => {
  return (
   <Info>
     <ImageContainer>
-      <ProductImage src={props.beer.image_url}/>
+      <ProductImage src={props.beer.image_url} alt="No picture for this bottle"/>
     </ImageContainer>
     <Details>
       <Name>{props.beer.name}</Name>

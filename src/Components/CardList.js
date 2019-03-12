@@ -5,7 +5,7 @@ import Card from './Card';
 const List = styled.div`
  padding: 15px;
  display: grid;
- grid-template-columns: repeat(3, 350px);
+ grid-template-columns: repeat(auto-fit, minmax(200px, 350px));
  grid-auto-rows: 450px;
  grid-gap: 15px;
 `;

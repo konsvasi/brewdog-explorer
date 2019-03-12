@@ -66,12 +66,13 @@ class SearchBar extends Component {
   submit =  async (searchTerm) => {
     const result = await this.fetchResults(searchTerm);
     this.props.getResults(result);
+    this.refs.searchField.value = '';
   }
 
   render() {
     return (
       <SearchField>
-        <Input placeholder="Search the BrewDog collection" onChange={this.handleOnChange} onKeyDown={this.checkForEnterPressed}></Input>
+        <Input placeholder="Search the BrewDog collection" onChange={this.handleOnChange} onKeyDown={this.checkForEnterPressed} ref="searchField"></Input>
         <a href="#"><Icon src={searchIcon} alt="glass" onClick={() => {this.submit(this.state.inputFieldValue)}}/></a>
       </SearchField>
     )
