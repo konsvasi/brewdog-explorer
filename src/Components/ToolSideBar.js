@@ -5,10 +5,8 @@ import RandomButton from './RandomButton';
 const SideBar = styled.div`
   padding: 15px;
   background: #F2F2EF;
-  height: 400px;
   display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 250px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 25px;
 `;
 
