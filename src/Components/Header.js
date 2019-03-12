@@ -10,7 +10,7 @@ const Head = styled.header`
 `;
 
 const Logo = styled.h1`
-  color: rosybrown;
+  color: #484848;
   grid-column: 1;
   justify-self: center;
 `;

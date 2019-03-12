@@ -40,7 +40,7 @@ const Info = styled.div`
   display: grid;
   grid-template-columns: 350px;
   grid-template-rows: 150px minmax(150px, auto);
-  background: palegreen;
+  background: whitesmoke;
   &:hover ${Details} {
     grid-row: 2 / 4;
     ${Description} {
@@ -54,7 +54,7 @@ const Info = styled.div`
     box-shadow: 15px 13px 29px -5px rgba(0,0,0,1);
     transition: 2s;
     grid-template-rows: 1fr;
-    background: red;
+    background: transparent;
     z-index: 10;
   }
 `;
