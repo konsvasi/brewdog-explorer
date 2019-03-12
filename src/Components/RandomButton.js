@@ -3,10 +3,10 @@ import styled from 'styled-components';
 
 const Button = styled.button`
   background: #5F9190;
-  width: 240px;
-  height: 60px;
-  justify-self: center;
-  border-radius: 30px;
+  width: 70px;
+  height: 70px;
+  justify-self: start;
+  border-radius: 50%;
   box-shadow: 15px 13px 29px -5px rgba(0,0,0,0.21);
   border-style: none;
   padding: 10px;
@@ -29,7 +29,7 @@ const click = async (props) => {
 
 const RandomButton = (props) => {
   return (
-    <Button onClick={() => { click(props)}}>Click for a random beer recommendation</Button>
+    <Button onClick={() => { click(props)}}>Random beer</Button>
   )
 }
 
